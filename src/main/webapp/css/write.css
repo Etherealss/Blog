@@ -1,0 +1,11 @@
+/**
+ * @fileoverview 新建博客页面
+ * @author 寒洲
+ * @date 2020/8/12
+ */
+/*主体外框*/
+.container {
+    border: solid 2px rgba(83, 80, 80, 0.554);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>个人博客</title>
+
+    <!--bootstrap导入-->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <!--toastr消息提示插件导入-->
+    <link rel="stylesheet" href="toastr/toastr.min.css">
+    <script src="toastr/toastr.min.js"></script>
+    <!--自定义toastr配置文件-->
+    <script src="js/config/toastr-config.js"></script>
+
+    <!------------导入css文件------------>
+    <link rel="stylesheet" href="css/blog-main.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <!------------导入js文件------------>
+    <!--常用的js操作-->
+    <script src="js/utils/common.js"></script>
+    <!--有关博客的js工具代码-->
+    <script src="js/utils/blog-utils.js"></script>
+
+    <!----------页眉部分---------->
+    <!--用户注册、修改信息时的通用操作-->
+    <script src="js/user/user-input-utils.js"></script>
+    <!--包含了登录注册过程中需要的操作-->
+    <script src="js/utils/login-registeration.js"></script>
+    <!--登录后的用户常用操作-->
+    <script src="js/utils/logged-in.js"></script>
+    <!--动态添加和显示页眉以及模态框-->
+    <script src="js/utils/create-header.js"></script>
+
+    <!--创建分页以及显示博客列表的js-->
+    <script src="js/blog/paging.js"></script>
+    <!--首页的js-->
+    <script src="js/user/index.js"></script>
+</head>
+
+<body>
+<!--页眉，js动态添加-->
+<header class="container-fluid"></header>
+<!--主体-->
+<article class="shadow container">
+    <!--顶部标题-->
+    <div class="row">
+        <div class="blog-header col-xs-3 col-xs-offset-2 col-sm-2 col-sm-offset-3">
+            博客
+        </div>
+        <div class="blog-header col-xs-3 col-xs-offset-2 col-sm-2 col-sm-offset-3">
+            作者
+        </div>
+    </div>
+    <!--自定义渐变水平分割线-->
+    <div class="headerline"></div>
+
+    <!--博客列表-->
+    <div class="blog-list"></div>
+
+    <!--分页导航栏-->
+    <div class="row">
+        <nav class="pager">
+            <ul class="pagination" id="page-area">
+<!--                <li id="page-previous">-->
+<!--                    <a href='javascript:void(0)' aria-label="Previous">-->
+<!--                        <span aria-hidden="true">&laquo;</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li><a href='javascript:void(0)'>1</a></li>-->
+<!--                <li><a href='javascript:void(0)'>2</a></li>-->
+<!--                <li><a href='javascript:void(0)'>3</a></li>-->
+<!--                <li><a href='javascript:void(0)'>4</a></li>-->
+<!--                <li><a href='javascript:void(0)'>5</a></li>-->
+<!--                <li id="page-next">-->
+<!--                    <a href='javascript:void(0)' aria-label="Next">-->
+<!--                        <span aria-hidden="true">&raquo;</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+            </ul>
+        </nav>
+    </div>
+</article>
+
+</body>
+
+</html>

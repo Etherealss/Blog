@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>个人中心</title>
+
+    <!--bootstrap导入-->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <!--toastr消息提示插件导入-->
+    <link rel="stylesheet" href="toastr/toastr.min.css">
+    <script src="toastr/toastr.min.js"></script>
+    <!--自定义toastr配置文件-->
+    <script src="js/config/toastr-config.js"></script>
+
+    <!------------导入css文件------------>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/center.css">
+
+    <!------------导入js文件------------>
+    <!--常用的js操作-->
+    <script src="js/utils/common.js"></script>
+    <!--操作博客时的js工具代码-->
+    <script src="js/utils/blog-utils.js"></script>
+
+    <!----------页眉部分---------->
+    <!--用户注册、修改信息时的通用操作-->
+    <script src="js/user/user-input-utils.js"></script>
+    <!--登录后的用户常用操作-->
+    <script src="js/utils/logged-in.js"></script>
+    <!--动态添加和显示页眉以及模态框-->
+    <script src="js/utils/create-header.js"></script>
+    <!--首页登录注册的操作-->
+    <script src="js/utils/login-registeration.js"></script>
+    <!--个人中心的js文件-->
+    <script src="js/user/center.js"></script>
+</head>
+
+<body>
+<!--页眉，js动态添加-->
+<header class="container-fluid"></header>
+<!--主体-->
+<div class="shadow container">
+    <!-- 用户头像及信息 -->
+    <div class="row">
+        <img class="col-xs-5 col-sm-3 col-md-3 big-avatar" src="" alt="用户头像">
+        <div class="col-xs-5 col-md-3">
+            <div class="row" id="center-info">
+                <span id="center-name"></span>
+                <span id="center-sex"></span>
+            </div>
+            <div class="row" id="center-id"></div>
+            <div class="row" id="center-birthday"></div>
+        </div>
+    </div>
+    <!-- 博客文章管理 -->
+    <!--表格-->
+    <div class="row" style="margin: 10px 20px 0 20px;">
+        <h3>博客文章管理</h3>
+        <!--table-bordered:边框  table-striped:条纹-->
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+            <tr>
+                <th style="width:5%">序号</th>
+                <th style="width:9%">博客编号</th>
+                <th style="width:30%">博客标题</th>
+                <th style="width:15%">最后更新</th>
+                <th style="width:5%">分类</th>
+                <th style="width:10%">主要标签</th>
+                <th style="width:10%">次要标签</th>
+                <th style="width:16%">操作</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    <ul class="pager">
+        <li id="center-previous"><a href=""><span aria-hidden="true">&larr;</span> 上一页</a></li>
+        <li id="center-next"><a href="">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/**
+* @fileoverview  通用样式表
+* @author  寒洲
+* @date 2020/8/12
+*/
+/*页眉 */
+header{
+    border-bottom:solid 2px #999999;
+    background: #354144;
+    padding: 5px 0 5px 0;
+    margin-bottom: 40px;
+    height: 65px;
+}
+.my-blog-name{
+    color:white;
+    font-size: 2.3em;
+    font-family: "方正粗黑宋简体", "楷书", "微软雅黑", serif;
+    margin: 0 auto;
+    cursor:pointer;
+}
+/*登录注册按钮排版 */
+#login-btn,#register-btn{
+    margin-top: 10px;
+}
+/*文章主体的边框 */
+.shadow{
+    border: solid 2px rgba(83, 80, 80, 0.554);
+    box-shadow:2px 4px 10px rgba(0,0,0,0.3);
+    padding: 5px;
+}
+/*去掉点击头像按钮时的蓝色边框*/
+#avatar-btn:focus,#avatar-btn:active{
+    outline:none;
+}
+/*发布博客按钮*/
+.publish-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+    /*悬浮鼠标改为“手指”*/
+    cursor: pointer;
+}
+/*页眉用户头像按钮*/
+.user-avatar, .avatar-btn img{
+    width: 50px;
+    height: 50px;
+}
+
+/*个人中心和修改头像界面，大头像的样式*/
+.big-avatar{
+    padding:0;
+    width:200px;
+    height:200px;
+    margin-left: 100px;
+}
+
+/*边框样式，用来看栅格的排布*/
+.red{
+    border: 1px solid red;
+}
+.blue{
+    border: 1px solid blue;
+}
+.pink{
+    border: 1px solid rgba(251, 125, 241, 0.6);
+}
+.yellow{
+    border: 1px solid rgba(241, 217, 0, 0.6);
+}

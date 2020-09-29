@@ -1,0 +1,13 @@
+/**
+* @fileoverview  首页
+* @author  寒洲
+* @date 2020/8/20
+*/
+
+.search-area{
+    margin-top: 8px;
+}
+
+.label-primary,.label-info{
+    cursor:pointer;
+}

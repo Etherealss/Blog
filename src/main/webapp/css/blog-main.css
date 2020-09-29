@@ -1,0 +1,87 @@
+/**
+ * @fileoverview 首页博客列表的样式表
+ * @author 寒洲
+ * @date 2020/7/29
+ */
+/*自定义渐变水平分割线*/
+.headerline{
+    height: 2px;
+    width: 100%;
+    background: -webkit-linear-gradient(left,white,#999999,white);
+    background: linear-gradient(to right, white,#999999,white);
+}
+
+/*--------------页面主体 博客列表css样式--------------*/
+
+/*列表标题*/
+.blog-header{
+    font-family: "方正粗黑宋简体", "微软雅黑", "幼圆", serif;
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    color: #999999;
+}
+/*列表主题*/
+.blog-list{
+    margin: 20px 0 5px 0;
+}
+/*一个博客列表项*/
+.blog-item{
+    margin: 20px 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom:  1px solid rgb(235, 233, 229);
+}
+/*博客标题*/
+.title{
+    font-family: "微软雅黑", "宋体", serif;
+    /* font-size: 1.5vmax; */
+    font-size: 1.5em;
+    color: rgb(11, 131, 131);
+    /*强制不换行*/
+    white-space: nowrap;
+    /*超出文本域的隐藏*/
+    overflow: hidden;
+    /*省略号*/
+    text-overflow: ellipsis;
+}
+.title a{
+    text-decoration: none;
+    color: rgb(11, 131, 131);
+}
+
+.title a:hover,a:visited {
+    text-decoration: none;
+    color: rgb(92, 6, 127);
+}
+/*标签*/
+.label{
+    font-size: 0.8em;
+}
+/*时间*/
+.datetime{
+    margin-top: 5px;
+}
+/*作者*/
+.author-name{
+    margin-top: 10px;
+    font-family: "微软雅黑", "宋体", serif;
+    /* font-size: 1.5vmax; */
+    font-size: 1.4em;
+    color: rgb(11, 131, 131);
+    /*强制不换行*/
+    white-space: nowrap;
+    overflow: hidden;
+    /*超出文本域的隐藏，省略号*/
+    text-overflow: ellipsis;
+}
+.author-img{
+    width: 50px;
+    height: 50px;
+}
+.author-img:hover, .author-img:active{
+    cursor:pointer;
+}
+
+
+
+
+

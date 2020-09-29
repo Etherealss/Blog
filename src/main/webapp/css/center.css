@@ -1,0 +1,41 @@
+/**
+ * @fileoverview 个人中心的样式表
+ * @author 寒洲
+ * @date 2020/8/15
+ */
+.container{
+    padding: 20px 0 20px 0;
+}
+#center-info{
+    margin: 50px 10px 10px 0;
+}
+#center-name {
+    font-size: 2em;
+}
+#center-sex {
+    font-size: 1em;
+    color: rgb(165, 165, 165);
+}
+#center-id {
+    font-size: 1.5em;
+    color: rgb(165, 165, 165);
+    margin: 10px 10px 10px 0;
+}
+
+#center-birthday{
+    font-size: 1.2em;
+    color: rgb(165, 165, 165);
+    margin: 10px 10px 10px 0;
+}
+table{
+    /*固定宽度*/
+    table-layout: fixed;
+}
+td{
+    /*超出文本域的隐藏*/
+    overflow: hidden;
+    /*强制不换行*/
+    white-space:nowrap;
+    /*省略号*/
+    text-overflow: ellipsis;
+}

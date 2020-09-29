@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新建博客</title>
+    <!--bootstrap导入-->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <!------------导入css文件------------>
+    <link rel="stylesheet" href="css/common.css">
+
+    <!------------导入js文件------------>
+    <!--常用的js操作-->
+    <script src="js/utils/common.js"></script>
+    <!--操作博客时的js工具代码-->
+    <script src="js/utils/blog-utils.js"></script>
+
+    <!----------页眉部分---------->
+    <!--用户注册、修改信息时的通用操作-->
+    <script src="js/user/user-input-utils.js"></script>
+    <!--包含了登录注册过程中需要的操作-->
+    <script src="js/utils/login-registeration.js"></script>
+    <!--登录后的用户常用操作-->
+    <script src="js/utils/logged-in.js"></script>
+    <!--动态添加和显示页眉以及模态框-->
+    <script src="js/utils/create-header.js"></script>
+
+    <!--新建和修改博客时的操作-->
+    <script src="js/blog/write.js"></script>
+</head>
+
+<body>
+<!--页眉，js动态添加-->
+<header class="container-fluid"></header>
+<!--主体-->
+<div class="shadow container">
+    <div class="container-fluid">
+        <!--标题输入框-->
+        <div class="form-group ">
+            <label for="write-title">标题</label>
+            <input type="text" id="write-title" class="form-control" placeholder="100个字以内哦">
+        </div>
+        <!-- 内容输入框 -->
+        <div class="form-group">
+            <label for="write-article">内容</label>
+            <!-- [resize:none]不能调整文本域大小 -->
+            <textarea class="form-control" id="write-article" rows="20" style="resize:none"></textarea>
+        </div>
+        <!--分类单选框 + 提示框-->
+        <div class="row">
+            <!-- 文章分类 -->
+            <div class="form-group col-xs-2 col-sm-1">
+                <label style="margin-top:5px;">分类</label>
+            </div>
+            <!--分类单选按钮-->
+            <div class="form-group col-xs-10 col-sm-6">
+                <!--通过js动态添加-->
+                <div class="btn-group" data-toggle="buttons"></div>
+            </div>
+            <!--提示框-->
+            <div class="col-xs-10 col-sm-4">
+                <div class="" id="write-tip"></div>
+            </div>
+        </div>
+        <!-- 自定义标签 + 两个按钮 -->
+        <div class="row">
+            <form class="form-inline">
+                <div class="col-xs-6 col-sm-5 col-md-4">
+                    <div class="form-group">
+                        <!--主要标签 mainlabel-->
+                        <label for="write-mlabel">主要标签</label>
+                        <input type="text" class="form-control" id="write-mlabel" placeholder="如果需要可以填写标签">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-5 col-md-4">
+                    <div class="form-group">
+                        <!--次要标签secondary label-->
+                        <label for="write-slabel">次要标签</label>
+                        <input type="text" class="form-control" id="write-slabel" placeholder="10个字或者字母以内哦">
+                    </div>
+                </div>
+            </form><!--form-inline-->
+            <div class="col-xs-3 col-xs-offset-3 col-sm-2 col-md-1 col-md-offset-0">
+                <button class="btn btn-primary" id="write-publish" onclick="return publish();">
+                    发布博客
+                </button>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-1">
+                <!--草稿箱来不及做了qaq 先这样吧 当做取消按钮-->
+                <button class="btn btn-default" id="write-save" onclick="publishCancel();" style="margin-left: 20px;">
+                    取消发布
+                </button>
+            </div>
+        </div><!--row-->
+    </div><!--container-fluid-->
+</div><!--container-->
+</body>
+
+</html>
