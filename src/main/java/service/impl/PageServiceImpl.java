@@ -23,6 +23,7 @@ public class PageServiceImpl implements PageService {
 
 	private final BlogDao blogDao = new BlogDaoImpl();
 
+	private static final String BLACK_SPACE = " ";
 	@Override
 	public PageBean<Blog> getBlogPageBean(String type, String msg, int currentPage, int rows) {
 
@@ -46,21 +47,25 @@ public class PageServiceImpl implements PageService {
 				msg = java.net.URLDecoder.decode(msg, "UTF-8");
 				System.out.println("PageService:msg转码：" + msg);
 				switch (type) {
-					case "category"://按博客类别查询
+					case "category":
+						//按博客类别查询
 						System.out.println("按博客类别查询" + msg);
 						list = blogDao.getBlogListByCategory(conn, Integer.parseInt(msg), start, rows);
 						totalCount = blogDao.getBlogCountByCategory(conn, Integer.parseInt(msg));
 						break;
-					case "mlabel"://按主要标签查询
+					case "mlabel":
+						//按主要标签查询
 						System.out.println("按主要标签查询：" + msg);
 						list = blogDao.getBlogListByMlabel(conn, msg, start, rows);
 						totalCount = blogDao.getBlogCountByMlabel(conn, msg);
 						break;
-					case "slabel"://按次要标签查询
+					case "slabel":
+						//按次要标签查询
 						System.out.println("按次要标签查询：" + msg);
 						list = blogDao.getBlogListBySlabel(conn, msg, start, rows);
 						totalCount = blogDao.getBlogCountBySlabel(conn, msg);
 						break;
+					default:
 				}
 			}
 			pb.setList(list);
@@ -95,9 +100,9 @@ public class PageServiceImpl implements PageService {
 			//encodeURIComponent解码
 			searchWord = java.net.URLDecoder.decode(searchWord, "UTF-8");
 			String[] words;
-			if (searchWord.contains(" ")) {
+			if (searchWord.contains(BLACK_SPACE)) {
 				//搜索词包含空格，
-				words = searchWord.split(" ");
+				words = searchWord.split(BLACK_SPACE);
 			} else {
 				words = new String[]{searchWord};
 			}

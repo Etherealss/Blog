@@ -24,9 +24,9 @@ public class UserAvatarServlet extends HttpServlet {
 		System.out.println("UserAvatarServlet:获取用户头像并输出!");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
-
 		//获取请求参数
 		String id_str = req.getParameter("id");
+		System.out.println(id_str);
 		byte[] avatarData=null;
 		if (id_str.equals("cancelled")){
 			//显示“已注销”头像

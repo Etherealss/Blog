@@ -112,7 +112,7 @@ public interface BlogDao {
 	 * @param userid 用户id
 	 * @param start 博客记录的起始索引
 	 * @param rows 每一页显示的记录行数，也就是每一次查询要获取的记录数
-	 * @return 包含了用户的博客的数据>
+	 * @return 包含了用户的博客的数据
 	 */
 	List<Blog> getUserBlogListByPage(Connection conn, Long userid, int start, int rows);
 

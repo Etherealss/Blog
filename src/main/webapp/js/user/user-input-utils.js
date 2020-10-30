@@ -148,6 +148,7 @@ function validateUserId(tipObj, userid) {
                     //用户名存在，提示用户换一个ID
                     setTip(tipObj, data.msg, "danger");
                     bool = false;
+
                 } else {
                     //用户名不存在，可以使用
                     setTip(tipObj, data.msg, "success");

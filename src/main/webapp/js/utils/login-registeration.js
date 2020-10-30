@@ -188,9 +188,13 @@ function loginSubmit() {
         type: "POST",
         //预期服务器返回的数据类型
         dataType: "json",
+        //请求的后端接口（Servlet）
         url: "/LoginServlet",
+        //form-data
+        //整个表单提交
         data: $("#login-form").serialize(),
         /**
+         * 下面这些是返回参数的文档注释
          * @param data
          * @param {Boolean} data.login 是否登录成功
          * @param {String} data.msg 登录提示信息

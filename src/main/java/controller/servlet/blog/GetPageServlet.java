@@ -22,6 +22,7 @@ import java.util.Map;
  */
 @WebServlet("/GetPageServlet")
 public class GetPageServlet extends HttpServlet {
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("GetPageServlet:doGet!");
 		//设置编码
@@ -70,6 +71,7 @@ public class GetPageServlet extends HttpServlet {
 		mapper.writeValue(resp.getWriter(), info);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doGet(request, response);
 	}

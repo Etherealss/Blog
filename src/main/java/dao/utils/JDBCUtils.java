@@ -1,7 +1,6 @@
 package dao.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-import com.alibaba.druid.pool.DruidPooledConnection;
 
 import javax.sql.DataSource;
 import java.io.InputStream;
