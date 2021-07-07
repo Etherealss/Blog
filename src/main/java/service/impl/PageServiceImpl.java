@@ -4,7 +4,9 @@ import bean.Blog;
 import bean.PageBean;
 import dao.BlogDao;
 import dao.impl.BlogDaoImpl;
-import dao.utils.JDBCUtils;
+import dao.utils.JdbcUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BlogService;
 import service.PageService;
 
@@ -20,7 +22,7 @@ import java.util.Set;
  * @date 2020/8/15
  */
 public class PageServiceImpl implements PageService {
-
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
 	private final BlogDao blogDao = new BlogDaoImpl();
 
 	private static final String BLACK_SPACE = " ";
@@ -29,7 +31,7 @@ public class PageServiceImpl implements PageService {
 
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//存入当前页码和每页显示的记录数
 			PageBean<Blog> pb = new PageBean<>(currentPage, rows);
 
@@ -45,23 +47,23 @@ public class PageServiceImpl implements PageService {
 				totalCount = blogDao.getBlogCount(conn);
 			} else {
 				msg = java.net.URLDecoder.decode(msg, "UTF-8");
-				System.out.println("PageService:msg转码：" + msg);
+				logger.debug("msg转码：" + msg);
 				switch (type) {
 					case "category":
 						//按博客类别查询
-						System.out.println("按博客类别查询" + msg);
+						logger.trace("按博客类别查询" + msg);
 						list = blogDao.getBlogListByCategory(conn, Integer.parseInt(msg), start, rows);
 						totalCount = blogDao.getBlogCountByCategory(conn, Integer.parseInt(msg));
 						break;
 					case "mlabel":
 						//按主要标签查询
-						System.out.println("按主要标签查询：" + msg);
+						logger.trace("按主要标签查询：" + msg);
 						list = blogDao.getBlogListByMlabel(conn, msg, start, rows);
 						totalCount = blogDao.getBlogCountByMlabel(conn, msg);
 						break;
 					case "slabel":
 						//按次要标签查询
-						System.out.println("按次要标签查询：" + msg);
+						logger.trace("按次要标签查询：" + msg);
 						list = blogDao.getBlogListBySlabel(conn, msg, start, rows);
 						totalCount = blogDao.getBlogCountBySlabel(conn, msg);
 						break;
@@ -76,7 +78,6 @@ public class PageServiceImpl implements PageService {
 			int page = totalCount / rows;
 			int totalPage = totalCount % rows == 0 ? page : page + 1;
 			if (currentPage > totalPage) {
-				//url错误，说！是不是你乱改的！(不是的话当我没说)
 				//这里改成0，ajax那里会判断之后提示“无匹配项”
 				pb.setTotalPage(0);
 			} else {
@@ -87,7 +88,7 @@ public class PageServiceImpl implements PageService {
 			e.printStackTrace();
 			return null;
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 
@@ -96,7 +97,7 @@ public class PageServiceImpl implements PageService {
 
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//encodeURIComponent解码
 			searchWord = java.net.URLDecoder.decode(searchWord, "UTF-8");
 			String[] words;
@@ -156,7 +157,7 @@ public class PageServiceImpl implements PageService {
 			e.printStackTrace();
 			return null;
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 
@@ -181,19 +182,19 @@ public class PageServiceImpl implements PageService {
 		//主要标签
 		for (Blog blog : mlabels) {
 			//如果和搜索词匹配就存入博客编号
-			if (search.contains(blog.getMlabel()) || blog.getMlabel().contains(search)) {
+			if (blog.getMlabel().contains(search)) {
 				blogNoSet.add(blog.getBlogNo());
 			}
 		}
 		//次要
 		for (Blog blog : slabels) {
-			if (search.contains(blog.getSlabel()) || blog.getSlabel().contains(search)) {
+			if (blog.getSlabel().contains(search)) {
 				blogNoSet.add(blog.getBlogNo());
 			}
 		}
 		//标题
 		for (Blog blog : titles) {
-			if (search.contains(blog.getTitle()) || blog.getTitle().contains(search)) {
+			if (blog.getTitle().contains(search)) {
 				blogNoSet.add(blog.getBlogNo());
 			}
 		}
@@ -222,7 +223,7 @@ public class PageServiceImpl implements PageService {
 	public PageBean<Blog> getUserBlogPageBean(Long userid, int currentPage, int rows) {
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//存入当前页码和每页显示的记录数
 			PageBean<Blog> pb = new PageBean<>(currentPage, rows);
 			//获取并存入总记录数
@@ -244,7 +245,7 @@ public class PageServiceImpl implements PageService {
 			e.printStackTrace();
 			return null;
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 }

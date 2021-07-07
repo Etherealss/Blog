@@ -2,6 +2,7 @@ package DaoText;
 
 import dao.CategoryDao;
 import dao.impl.CategoryDaoImpl;
+import dao.utils.JdbcUtils;
 import org.junit.Test;
 
 
@@ -14,7 +15,7 @@ public class CategoryDaoImplTest {
 
 	{
 		try {
-			conn = dao.utils.JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

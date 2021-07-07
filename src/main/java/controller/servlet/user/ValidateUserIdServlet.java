@@ -1,9 +1,8 @@
 package controller.servlet.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
-import dao.utils.JDBCUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +21,12 @@ import java.util.Map;
  */
 @WebServlet("/ValidateUserIdServlet")
 public class ValidateUserIdServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("ValidateUserIdServlet:doGet!");
+		logger.trace("检查用户id是否存在");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json
@@ -47,7 +49,7 @@ public class ValidateUserIdServlet extends HttpServlet {
 		}else{
 			//出现意外状况
 			//不存在
-			System.out.println("ValidateUserIdServlet:error！！");
+			logger.trace("检查用户ID出现意外");
 			info.put("userExist", false);
 			info.put("msg", "检查ID时出现意外状况，请重试或刷新页面");
 		}

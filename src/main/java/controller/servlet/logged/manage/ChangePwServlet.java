@@ -1,6 +1,8 @@
 package controller.servlet.logged.manage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -20,8 +22,12 @@ import java.util.Map;
  */
 @WebServlet("/ChangePwServlet")
 public class ChangePwServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("ChangePwServlet:doGet!");
+		logger.trace("修改密码");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("application/json;charset=utf-8");

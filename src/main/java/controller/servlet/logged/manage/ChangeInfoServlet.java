@@ -2,9 +2,8 @@ package controller.servlet.logged.manage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import bean.User;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
-import dao.utils.JDBCUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 import utils.CookieUtils;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -28,8 +26,10 @@ import java.util.Map;
  */
 @WebServlet("/ChangeInfoServlet")
 public class ChangeInfoServlet extends HttpServlet {
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("ManageInfoServlet:doGet!");
+		logger.trace("管理用户信息!");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json
@@ -37,7 +37,7 @@ public class ChangeInfoServlet extends HttpServlet {
 		//获取请求参数
 		Long originalId = Long.valueOf(req.getParameter("original-id"));
 		String nickname = req.getParameter("nickname");
-		System.out.println("nickname = " + nickname);
+		logger.trace("nickname = " + nickname);
 		Long id = Long.valueOf(req.getParameter("userid"));
 		Date birthday;
 		//为了当转换失败的时候后续代码都不执行，我把后续所有的代码都包裹在try-catch中

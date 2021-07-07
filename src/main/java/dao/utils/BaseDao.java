@@ -1,7 +1,5 @@
 package dao.utils;
 
-import dao.utils.JDBCUtils;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -39,6 +37,7 @@ public abstract class BaseDao<T> {
 	 * @return 返回int类型的参数显示影响了多少行数据
 	 */
 	public int update(Connection conn, String sql, Object... args) {
+
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -52,7 +51,7 @@ public abstract class BaseDao<T> {
 			e.printStackTrace();
 		} finally {
 			// 资源关闭,不关闭连接
-			JDBCUtils.closeResource(ps, null);
+			JdbcUtils.closeResource(ps, null);
 
 		}
 		return 0;
@@ -104,7 +103,7 @@ public abstract class BaseDao<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtils.closeResource(ps, rs);
+			JdbcUtils.closeResource(ps, rs);
 		}
 
 		return null;
@@ -151,7 +150,7 @@ public abstract class BaseDao<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtils.closeResource(ps, rs);
+			JdbcUtils.closeResource(ps, rs);
 		}
 		return null;
 	}
@@ -185,7 +184,7 @@ public abstract class BaseDao<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtils.closeResource(ps, rs);
+			JdbcUtils.closeResource(ps, rs);
 		}
 		return null;
 	}
@@ -215,7 +214,7 @@ public abstract class BaseDao<T> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtils.closeResource(ps, rs);
+			JdbcUtils.closeResource(ps, rs);
 		}
 		return null;
 	}

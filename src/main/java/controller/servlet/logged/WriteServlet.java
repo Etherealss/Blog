@@ -2,9 +2,8 @@ package controller.servlet.logged;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import bean.Blog;
-import dao.BlogDao;
-import dao.impl.BlogDaoImpl;
-import dao.utils.JDBCUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BlogService;
 import service.impl.BlogServiceImpl;
 
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,8 +24,12 @@ import java.util.Map;
  */
 @WebServlet("/WriteServlet")
 public class WriteServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("WriteServlet:doGet!");
+		logger.trace("发布文章");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json
@@ -36,6 +38,8 @@ public class WriteServlet extends HttpServlet {
 		//获取参数
 		Long userid = Long.valueOf(req.getParameter("userid"));
 		String title = req.getParameter("title");
+		logger.info("发布博客：用户id：{}，博客标题：{}", userid, title);
+
 		String content = req.getParameter("content");
 		int categoryIndex = Integer.parseInt(req.getParameter("category-index"));
 		String mlabel = req.getParameter("mlabel");

@@ -1,5 +1,7 @@
 package controller.listener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -13,10 +15,11 @@ import javax.servlet.ServletContextListener;
  */
 
 public class TomcatListener implements ServletContextListener {
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
 
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
-		System.out.println("tomcat关闭......");
+		logger.trace("tomcat关闭......");
 		//将数据库中用户在线状态设置为下线
 		UserService us = new UserServiceImpl();
 		us.logoutAllUser();

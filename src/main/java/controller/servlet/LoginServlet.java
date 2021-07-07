@@ -2,6 +2,8 @@ package controller.servlet;
 
 import bean.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 import utils.CookieUtils;
@@ -21,9 +23,11 @@ import java.util.Map;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("loginServlet:登录");
+		logger.trace("用户登录");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json

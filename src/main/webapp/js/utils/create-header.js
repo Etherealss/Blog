@@ -29,11 +29,11 @@ userUnlogin = function () {
  */
 function addBtn() {
     var str = "<div class=\"row\">" +
-        "        <div class=\"col-sm-3 col-xs-5 my-blog-name\" title=\"回到首页\">个人博客</div>";
+        "        <div class=\"my-blog-name\" title=\"回到首页\">个人博客</div>";
     //搜索框
     str += addSearchHtml();
     str += "     <!--登录注册按钮-->" +
-        // "        <div class=\"col-sm-3 col-sm-offset-6 col-xs-offset-3 col-xs-4\">" +
+        "        <div id=\"header-btn-box\">" +
         "            <!-- 登录按钮，打开登录模态窗口-->" +
         "            <div id=\"headerBtns\"> " +
         "                 <button type=\"button\" class=\"btn\" id=\"login-btn\" data-toggle=\"modal\" data-target=\"#login-modal\">" +
@@ -44,8 +44,7 @@ function addBtn() {
         "                     注册" +
         "                 </button>" +
         "            </div>" +
-        "        </div>" +
-        "    </div>";
+        "        </div>";
     $("header").append(str);
     addBlogTitleOnClick();
     //回显搜索框的内容
@@ -60,17 +59,17 @@ function addSearchHtml() {
     if (isIndex){
         // 如果是首页，再插入搜索框HTML。
         // label是被迫加上去的因为bootstrap这么要求，改为sr-only为不显示
-        str = "  <div class='col-sm-5 col-xs-4 '><div class=\"form-group has-feedback search-area\">\n" +
+        str = "<div id='search-area-box'>" +
+            "       <div class=\"form-group has-feedback search-area\">\n" +
             "         <label class=\"control-label sr-only\" for=\"input-search\" >搜索</label>"+
-            "         <input type=\"text\" class=\"form-control\" id='input-search' placeholder=\"搜索...\" onkeydown=\"onKeyDown(event)\"/>" +
+            "         <input type=\"text\" class=\"form-control\" id='input-search' " +
+            "           placeholder=\"搜索...\" style='width: 300px' onkeydown=\"onKeyDown(event)\"/>" +
             //点击事件不起作用
             "         <span style='cursor: pointer' onclick=\"doSearch();\">" +
             "             <span class=\"glyphicon glyphicon-search form-control-feedback\"></span>" +
             "         </span>"+
-            "     </div></div>" +
-            "     <div class=\"col-sm-3 col-xs-4 col-xs-offset-0\">";
-    }else{
-        str ="   <div class=\"col-sm-2 col-xs-4 col-sm-offset-5  col-xs-offset-4\">";
+            "     </div>" +
+            "   </div>";
     }
     return str;
 }
@@ -79,13 +78,13 @@ function addSearchHtml() {
  * 登录后显示用户头像按钮
  */
 function addUserBtn(userid) {
-    var str = "<div class=\"form-inline row\"'>" +
-              "<div class=\"col-sm-4 col-xs-4 my-blog-name\">个人博客</div>";
+    var str = "<div class=\"form-inline row\" style='' '>" +
+              "<div class=\"my-blog-name\">个人博客</div>";
     //搜索框
     str += addSearchHtml();
-    str +="<div class=\"row\">" +
+    str +="<div class=\"row\" id='header-userbtn-box'>" +
           "      <!--下拉菜单按钮，用css代码做了排版调整-->" +
-          "      <div class=\"dropdown col-xs-4\">" +
+          "      <div class=\"dropdown\" style='display: inline-block;'>" +
           "             <button type=\"button\" class=\"btn btn-link dropdown-toggle avatar-btn\" data-toggle=\"dropdown\"" +
           "                  aria-haspopup=\"true\" aria-expanded=\"false\" style=\"margin-top: -6px\">" +
           "                <!--把用户头像作为按钮显示-->" +
@@ -106,7 +105,7 @@ function addUserBtn(userid) {
     var isIndex = (path.indexOf("index.html") != -1 || path.indexOf(".html") == -1);
     if (isIndex){
         //首页添加发布博客按钮
-        str += "<div class=\"col-xs-1\">" +
+        str += "<div style='display: inline-block;margin-left: 5px'>" +
             "        <img class=\"publish-btn\" src=\"images/publish.png\" alt=\"发布博客\" onclick=\"toPublish(" + userid + ");\" />" +
             "   </div>";
     }

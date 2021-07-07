@@ -2,6 +2,8 @@ package controller.servlet.utils;
 
 import bean.Blog;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BlogService;
 import service.impl.BlogServiceImpl;
 
@@ -22,8 +24,12 @@ import java.util.Map;
  */
 @WebServlet("/GetCategoryServlet")
 public class GetCategoryServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("GetCategoryServlet:获取博客分类名");
+		logger.trace("获取博客分类名");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json

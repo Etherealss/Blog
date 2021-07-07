@@ -2,6 +2,8 @@ package controller.servlet.logged;
 
 import bean.Blog;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BlogService;
 import service.impl.BlogServiceImpl;
 
@@ -22,8 +24,10 @@ import java.util.Map;
  */
 @WebServlet("/ChangeBlogServlet")
 public class ChangeBlogServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("ChangeBlogServlet:doGet!");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json
@@ -31,6 +35,8 @@ public class ChangeBlogServlet extends HttpServlet {
 		//获取参数
 		Long userid = Long.valueOf(req.getParameter("userid"));
 		int blogNo = Integer.parseInt(req.getParameter("blogno"));
+		logger.info("修改博客：用户id：{}，博客号：{}", userid, blogNo);
+
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		int categoryIndex = Integer.parseInt(req.getParameter("category-index"));

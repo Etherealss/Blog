@@ -2,6 +2,8 @@ package controller.servlet.user;
 
 import bean.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -21,8 +23,13 @@ import java.util.Map;
  */
 @WebServlet("/GetUserInfoServlet")
 public class GetUserInfoServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("GetUserInfoServlet:doPost!");
+		logger.trace("获取用户的个人信息");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json

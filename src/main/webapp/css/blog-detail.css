@@ -19,9 +19,17 @@ article {
    margin: 15px;
 }
 
+#detail-title {
+   margin-bottom: 10px;
+}
+
+.blog-label {
+   margin: 0 0 10px 0;
+}
+
 /* 作者头像 */
 #detail-author-img {
-   margin-left: 20px;
+   margin-left: 33px;
 }
 
 /* 作者昵称 */
@@ -94,4 +102,9 @@ pre{
    /*透明*/
    background-color: rgba(255,255,255,0);
    border: none;
+}
+
+/*评论区*/
+#comment-area {
+   padding: 0 50px;
 }

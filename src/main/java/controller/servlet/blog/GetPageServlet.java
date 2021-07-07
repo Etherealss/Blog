@@ -3,6 +3,8 @@ package controller.servlet.blog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import bean.Blog;
 import bean.PageBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.PageService;
 import service.impl.PageServiceImpl;
 
@@ -22,9 +24,12 @@ import java.util.Map;
  */
 @WebServlet("/GetPageServlet")
 public class GetPageServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("GetPageServlet:doGet!");
+		logger.trace("获取分页和页面的博客数据");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json
@@ -63,7 +68,7 @@ public class GetPageServlet extends HttpServlet {
 			page = ps.getBlogPageBean(null,null,cerrentPage, rows);
 		}
 		//返回信息的map
-		Map<String, Object> info = new HashMap<String, Object>();
+		Map<String, Object> info = new HashMap<String, Object>(2);
 		info.put("page", page);
 		//将map转为JSON
 		ObjectMapper mapper = new ObjectMapper();

@@ -83,86 +83,93 @@
             <!--使用pre 避免博客内容包含html文本-->
             <pre id="detail-content"></pre>
         </div>
-        <!-------------------------- 评论框 -------------------------->
-        <!--            <div class="row" id="comment">-->
-        <!--                <label for="write-article">评论区</label>-->
-        <!--                <textarea class="col-xs-12" id="write-article" rows="10" style="resize:none"-->
-        <!--                    placeholder="评论"></textarea>-->
-        <!--                <div class="pull-right">-->
-        <!--                    <button class="btn btn-success col-xs-11" id="comment-btn">评论</button>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!-------------------------- 底部评论列表 -------------------------->
-        <!--            <ul class="media-list">-->
-        <!--                &lt;!&ndash; 一条评论 &ndash;&gt;-->
-        <!--                <li class="media">-->
-        <!--                    &lt;!&ndash; 评论左侧，用户头像 &ndash;&gt;-->
-        <!--                    <div class="media-left">-->
-        <!--                        <a href="#">-->
-        <!--                            <img class="media-object user-avatar" src="images/girl.png" alt="...">-->
-        <!--                        </a>-->
-        <!--                    </div>-->
-        <!--                    &lt;!&ndash; 评论主体 &ndash;&gt;-->
-        <!--                    <div class="media-body">-->
-        <!--                        &lt;!&ndash; 评论用户 &ndash;&gt;-->
-        <!--                        <p class="media-heading comment-user">大娃</p>-->
-        <!--                        &lt;!&ndash; 评论内容 &ndash;&gt;-->
-        <!--                        <p class="comment-msg">人类的本质是复读机！</p>-->
-        <!--                        &lt;!&ndash; 套娃评论列表 &ndash;&gt;-->
-        <!--                        <ul class="media-list">-->
-        <!--                            &lt;!&ndash; 一条套娃评论 &ndash;&gt;-->
-        <!--                            <li class="media">-->
-        <!--                                <div class="media-left">-->
-        <!--                                    <a href="#">-->
-        <!--                                        <img class="media-object user-avatar" src="images/girl.png" alt="...">-->
-        <!--                                    </a>-->
-        <!--                                </div>-->
-        <!--                                <div class="media-body">-->
-        <!--                                    <p class="media-heading">二娃</p>-->
-        <!--                                    <p class="comment-msg">人类的本质是复读机！</p>-->
-        <!--                                </div>-->
-        <!--                            </li>-->
-        <!--                            &lt;!&ndash; 两条套娃评论 &ndash;&gt;-->
-        <!--                            <li class="media">-->
-        <!--                                <div class="media-left">-->
-        <!--                                    <a href="#">-->
-        <!--                                        <img class="media-object user-avatar" src="images/girl.png" alt="...">-->
-        <!--                                    </a>-->
-        <!--                                </div>-->
-        <!--                                <div class="media-body">-->
-        <!--                                    <p class="media-heading">三娃</p>-->
-        <!--                                    <p class="comment-msg">人类的本质是复读机！</p>-->
-        <!--                                </div>-->
-        <!--                            </li>-->
-        <!--                        </ul>-->
+        <div id="comment-area">
+            <!-------------------------- 评论框 -------------------------->
+            <div class="row" id="comment">
+                <label for="write-article">评论区</label>
+                <textarea class="col-xs-12" id="write-article" rows="10" style="resize:none"
+                          placeholder="评论"></textarea>
+                <div class="pull-right">
+                    <button class="btn btn-success col-xs-11" id="comment-btn">评论</button>
+                </div>
+            </div>
+            <!-------------------------- 底部评论列表 -------------------------->
+            <ul class="media-list" id="comment-list">
+                <!-- 一条评论 -->
+                <li class="media">
+                    <!-- 评论左侧，用户头像 -->
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object user-avatar" src="images/boy2.jpg" alt="...">
+                        </a>
+                    </div>
+                    <!-- 评论主体 -->
+                    <div class="media-body">
+                        <!-- 评论用户 -->
+                        <p class="media-heading comment-user">大娃</p>
+                        <!-- 评论内容 -->
+                        <p class="comment-msg">博采众长，共同进步！</p>
+                        <!-- 评论时间 -->
+                        <p class="comment-time">2021-07-07 12:23</p>
+                        <!-- 套娃评论列表 -->
+                        <ul class="media-list">
+                            <!-- 一条套娃评论 -->
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object user-avatar" src="images/boy.png" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <p class="media-heading">二娃</p>
+                                    <p class="comment-msg">博采众长，共同进步！</p>
+                                    <p class="comment-time">2021-07-08 17:44</p>
+                                </div>
+                            </li>
+                            <!-- 两条套娃评论 -->
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object user-avatar" src="images/girl.png" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <p class="media-heading">三娃</p>
+                                    <p class="comment-msg">人类的本质是复读机！</p>
+                                    <p class="comment-time">2021-07-09 23:17</p>
+                                </div>
+                            </li>
+                        </ul>
 
-        <!--                    </div>-->
-        <!--                </li>-->
-        <!--                &lt;!&ndash; 还是一条评论 &ndash;&gt;-->
-        <!--                <li class="media">-->
-        <!--                    <div class="media-left">-->
-        <!--                        <a href="#">-->
-        <!--                            <img class="media-object user-avatar" src="images/girl.png" alt="...">-->
-        <!--                        </a>-->
-        <!--                    </div>-->
-        <!--                    <div class="media-body">-->
-        <!--                        <p class="media-heading">奔波霸儿</p>-->
-        <!--                        <p class="comment-msg">人类的本质是复读机！</p>-->
-        <!--                    </div>-->
-        <!--                </li>-->
-        <!--                &lt;!&ndash; 又是评论 &ndash;&gt;-->
-        <!--                <li class="media">-->
-        <!--                    <div class="media-left">-->
-        <!--                        <a href="#">-->
-        <!--                            <img class="media-object user-avatar" src="images/girl.png" alt="...">-->
-        <!--                        </a>-->
-        <!--                    </div>-->
-        <!--                    <div class="media-body">-->
-        <!--                        <p class="media-heading">霸波奔儿</p>-->
-        <!--                        <p class="comment-msg">人类的本质是复读机！</p>-->
-        <!--                    </div>-->
-        <!--                </li>-->
-        <!--            </ul>-->
+                    </div>
+                </li>
+<!--                -->
+<!--                &lt;!&ndash; 还是一条评论 &ndash;&gt;-->
+<!--                <li class="media">-->
+<!--                    <div class="media-left">-->
+<!--                        <a href="#">-->
+<!--                            <img class="media-object user-avatar" src="images/boy.png" alt="...">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="media-body">-->
+<!--                        <p class="media-heading">奔波霸儿</p>-->
+<!--                        <p class="comment-msg">人类的本质是复读机！</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                &lt;!&ndash; 又是评论 &ndash;&gt;-->
+<!--                <li class="media">-->
+<!--                    <div class="media-left">-->
+<!--                        <a href="#">-->
+<!--                            <img class="media-object user-avatar" src="images/boy2.jpg" alt="...">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="media-body">-->
+<!--                        <p class="media-heading">霸波奔儿</p>-->
+<!--                        <p class="comment-msg">人类的本质是复读机！</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+            </ul>
+        </div>
     </article>
 </div>
 </body>

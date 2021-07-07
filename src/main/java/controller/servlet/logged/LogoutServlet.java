@@ -1,5 +1,7 @@
 package controller.servlet.logged;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -17,8 +19,11 @@ import java.io.IOException;
  */
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("LogoutServlet:用户退出登录");
+		logger.trace("用户退出登录");
 		//获取退出登录的userid
 		Object userid = req.getSession().getAttribute("userid");
 		UserService us = new UserServiceImpl();
@@ -26,7 +31,7 @@ public class LogoutServlet extends HttpServlet {
 		us.logout(Long.valueOf(String.valueOf(userid)));
 
 		//删除session
-		System.out.println("删除了session");
+		logger.trace("删除了session");
 		req.getSession().invalidate();
 	}
 

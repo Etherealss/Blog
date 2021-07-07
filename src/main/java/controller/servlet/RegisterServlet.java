@@ -2,6 +2,8 @@ package controller.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import bean.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -24,8 +26,12 @@ import java.util.Map;
  */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("RegisterServlet:doGet！");
+		logger.trace("用户注册！");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json

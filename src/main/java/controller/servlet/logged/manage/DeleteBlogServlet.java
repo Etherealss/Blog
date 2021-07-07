@@ -1,5 +1,7 @@
 package controller.servlet.logged.manage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BlogService;
 import service.impl.BlogServiceImpl;
 
@@ -17,8 +19,11 @@ import java.io.IOException;
  */
 @WebServlet("/DeleteBlogServlet")
 public class DeleteBlogServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("DeleteBlogServlet:doGet!");
+		logger.trace("删除博客");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		//删除博客

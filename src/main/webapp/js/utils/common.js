@@ -171,5 +171,5 @@ dateFormat = function (dateMs) {
  * @param userid 用户id
  */
 showAvatar = function (imgObj, userid) {
-    imgObj.prop("src", "/GetUserAvatarServlet?id=" + userid);
+    imgObj.prop("src", "/UserAvatarServlet?id=" + userid);
 }

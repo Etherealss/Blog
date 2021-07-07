@@ -2,6 +2,8 @@ package controller.servlet.logged.manage;
 
 import bean.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -21,8 +23,11 @@ import java.util.Map;
  */
 @WebServlet("/DeleteUserServlet")
 public class DeleteUserServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("DeleteUserServlet:doPost!");
+		logger.trace("删除用户");
 		//设置编码
 		req.setCharacterEncoding("utf-8");
 		Long userid = Long.valueOf(req.getParameter("delete-userid"));

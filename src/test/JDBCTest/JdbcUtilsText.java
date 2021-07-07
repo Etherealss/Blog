@@ -1,7 +1,7 @@
 package JDBCTest;
 
 import org.junit.Test;
-import dao.utils.JDBCUtils;
+import dao.utils.JdbcUtils;
 
 import java.sql.Connection;
 
@@ -10,7 +10,7 @@ import java.sql.Connection;
  * @Author 寒洲
  * @Date 2020/7/24
  */
-public class JDBCUtilsText {
+public class JdbcUtilsText {
 
     /**
      * 测试获取数据库连接
@@ -18,7 +18,7 @@ public class JDBCUtilsText {
      */
     @Test
     public void getConnection() throws Exception{
-        Connection connection = JDBCUtils.getConnection();
+        Connection connection = JdbcUtils.getConnection();
         System.out.println(connection);
     }
 }

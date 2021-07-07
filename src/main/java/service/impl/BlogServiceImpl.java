@@ -7,7 +7,9 @@ import dao.BlogDao;
 import dao.UserDao;
 import dao.impl.BlogDaoImpl;
 import dao.impl.UserDaoImpl;
-import dao.utils.JDBCUtils;
+import dao.utils.JdbcUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BlogService;
 
 import java.sql.Connection;
@@ -19,6 +21,7 @@ import java.util.List;
  * @date 2020/8/15
  */
 public class BlogServiceImpl implements BlogService {
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
 
 	private final BlogDao blogDao = new BlogDaoImpl();
 
@@ -26,14 +29,14 @@ public class BlogServiceImpl implements BlogService {
 	public List<String> getCategory() {
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//修改博客
 			CategoryDao cd = new CategoryDaoImpl();
 			return cd.getBlogCategory(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 		return null;
 	}
@@ -42,7 +45,7 @@ public class BlogServiceImpl implements BlogService {
 	public Blog getBlog(int blogNo) {
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//获取博客信息
 			Blog blog = blogDao.getBlogByNo(conn, blogNo);
 			//判断作者账号是否已注销（删除）
@@ -57,7 +60,7 @@ public class BlogServiceImpl implements BlogService {
 			e.printStackTrace();
 			return null;
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 
@@ -65,16 +68,16 @@ public class BlogServiceImpl implements BlogService {
 	public Boolean insertBlog(Blog blog) {
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			blogDao.insertNewBlog(conn, blog);
-			System.out.println("WriteServlet：insert：成功");
+			logger.debug("新增博客：成功");
 			return true;
 		} catch (Exception e) {
-			System.out.println("WriteServlet：insert：error");
+			logger.debug("新增博客异常");
 			e.printStackTrace();
 			return false;
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 
@@ -82,7 +85,7 @@ public class BlogServiceImpl implements BlogService {
 	public Boolean updateBlog(Blog blog) {
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//修改博客
 			blogDao.updateBlogByNo(conn, blog);
 			return true;
@@ -90,7 +93,7 @@ public class BlogServiceImpl implements BlogService {
 			e.printStackTrace();
 			return false;
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 
@@ -98,13 +101,13 @@ public class BlogServiceImpl implements BlogService {
 	public void deleteBlog(int blogNo) {
 		Connection conn = null;
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 			//删除博客
 			blogDao.deleteBlogByNo(conn, blogNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtils.closeConnection(conn);
+			JdbcUtils.closeConnection(conn);
 		}
 	}
 }

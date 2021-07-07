@@ -3,7 +3,7 @@ package DaoText;
 import bean.Blog;
 import dao.BlogDao;
 import dao.impl.BlogDaoImpl;
-import dao.utils.JDBCUtils;
+import dao.utils.JdbcUtils;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -15,7 +15,7 @@ public class BlogDaoTest {
 
 	{
 		try {
-			conn = JDBCUtils.getConnection();
+			conn = JdbcUtils.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -2,9 +2,8 @@ package controller.servlet.logged.manage;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
-import dao.utils.JDBCUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.sql.Connection;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,8 +24,11 @@ import java.util.Map;
  */
 @WebServlet("/UploadServlet")
 public class ChangeAvatarServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger("simpleAsyncLogger");
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("UploadServlet:doGet!");
+		logger.trace("UploadServlet:doGet!");
 		//设置编码
 		request.setCharacterEncoding("utf-8");
 		//设置响应的数据格式为json

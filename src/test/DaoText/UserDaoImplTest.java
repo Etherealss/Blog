@@ -2,7 +2,7 @@ package DaoText;
 
 import dao.UserDao;
 import org.junit.Test;
-import dao.utils.JDBCUtils;
+import dao.utils.JdbcUtils;
 import bean.User;
 import dao.impl.UserDaoImpl;
 
@@ -22,7 +22,7 @@ public class UserDaoImplTest {
 
     {
         try {
-            conn = JDBCUtils.getConnection();
+            conn = JdbcUtils.getConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class UserDaoImplTest {
         }
         dao.insertNewUser(conn, user);
         System.out.println("insert测试完成");
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
     }
 
     /**
@@ -60,14 +60,14 @@ public class UserDaoImplTest {
     public void deleteById() {
         dao.deleteById(conn,333L);
         System.out.println("deleteById测试完成");
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
     }
 
     @Test
     public void updatePw() {
         dao.updatePw(conn,567L,"999","888");
         System.out.println("updatePw测试完成");
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class UserDaoImplTest {
         User userById = dao.getUserById(conn, 1231L);
         System.out.println(userById);
         System.out.println("getUserByInfo测试完成");
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
     }
 
     @Test
@@ -100,13 +100,13 @@ public class UserDaoImplTest {
             System.out.println(s);
         }
         System.out.println("getAllUser测试完成");
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
     }
 
     @Test
     public void existUserById() {
         System.out.println(dao.existUserById(conn, 1231L));
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
     }
 
     @Test
@@ -116,7 +116,7 @@ public class UserDaoImplTest {
 	@Test
 	public void validatePw() {
         System.out.println("getUserByInfo测试 = " + dao.validatePw(conn, 123123L,"123123"));
-        JDBCUtils.closeConnection(conn);
+        JdbcUtils.closeConnection(conn);
 	}
 
 	@Test

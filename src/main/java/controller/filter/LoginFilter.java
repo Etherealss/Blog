@@ -17,6 +17,7 @@ import java.util.Set;
  */
 @WebFilter("/*")
 public class LoginFilter implements Filter {
+	@Override
 	public void destroy() {}
 
 	/**
@@ -28,6 +29,7 @@ public class LoginFilter implements Filter {
 					"/DeleteUserServlet", "/UploadServlet", "/LogoutServlet", "/WriteServlet")));
 
 
+	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
@@ -54,6 +56,7 @@ public class LoginFilter implements Filter {
 
 	}
 
+	@Override
 	public void init(FilterConfig config) throws ServletException {}
 
 }
